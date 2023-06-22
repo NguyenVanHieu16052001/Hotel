@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>Hotel Dashboard Template</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.png"
+    />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="assets/plugins/fontawesome/css/fontawesome.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/feathericon.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="assets/plugins/datatables/datatables.min.css"
+    />
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap-datetimepicker.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      .avatar-img {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="assets/img/hotel_logo.png"
+              width="50"
+              height="70"
+              alt="logo"
+            />
+            <span class="logoclass">HOTEL</span>
+          </a>
+          <a href="index.html" class="logo logo-small">
+            <img
+              src="assets/img/hotel_logo.png"
+              alt="Logo"
+              width="30"
+              height="30"
+            />
+          </a>
+        </div>
+
+        <a href="javascript:void(0);" id="toggle_btn">
+          <i class="fe fe-text-align-left"></i>
+        </a>
+
+        <a class="mobile_btn" id="mobile_btn">
+          <i class="fas fa-bars"></i>
+        </a>
+
+        <ul class="nav user-menu">
+
+          <li class="nav-item dropdown has-arrow">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <span class="user-img"
+                ><img
+                  class="rounded-circle"
+                  src="assets/img/profiles/avatar-01.jpg"
+                  width="31"
+                  alt="Soeng Souy"
+              /></span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="user-header">
+                <div class="avatar avatar-sm">
+                  <img
+                    src="assets/img/profiles/avatar-01.jpg"
+                    alt="User Image"
+                    class="avatar-img rounded-circle"
+                  />
+                </div>
+                <div class="user-text">
+                  <h6>Soeng Souy</h6>
+                  <p class="text-muted mb-0">Administrator</p>
+                </div>
+              </div>
+              <a class="dropdown-item" href="profile.html">My Profile</a>
+              <a class="dropdown-item" href="settings.html">Account Settings</a>
+              <a class="dropdown-item" href="login.html">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner slimscroll">
+          <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+              <li class="active">
+                <a href="index.html"
+                  ><i class="fas fa-laptop"></i> <span>Home</span></a
+                >
+              </li>
+              <li class="list-divider"></li>
+              <li class="submenu">
+                <a href="#"
+                  ><i class="fas fa-suitcase"></i> <span> Booking </span>
+                  <span class="menu-arrow"></span
+                ></a>
+                <ul class="submenu_class" style="display: none">
+                  <li><a href="all-booking.html"> All Booking </a></li>
+                  <li><a href="add-booking.html"> Add Booking </a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="#"
+                  ><i class="fas fa-user"></i> <span> Customers </span>
+                  <span class="menu-arrow"></span
+                ></a>
+                <ul class="submenu_class" style="display: none">
+                  <li><a href="all-customer.html"> All customers </a></li>
+                  <li><a href="add-customer.html"> Add Customer </a></li>
+                </ul>
+              </li>
+               
+              </li>
+              <li class="submenu">
+                <a href="#"
+                  ><i class="fas fa-envelope"></i> <span> Staff </span>
+                  <span class="menu-arrow"></span
+                ></a>
+                <ul class="submenu_class" style="display: none">
+                  <li><a href="all-staff.html">All Staff </a></li>
+                  <li><a href="add-staff.html"> Add Staff </a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="#"
+                  ><i class="fas fa-cube"></i> <span> Hotel </span>
+                  <span class="menu-arrow"></span
+                ></a>
+                <ul class="submenu_class" style="display: none">
+                  <li><a href="hotels.html">All Hotel </a></li>
+                  <li><a href="add-hotel.html">Add Hotel</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-wrapper">
+        <div class="content container-fluid">
+          <div class="page-header">
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="mt-5">
+                  <h4 class="card-title float-left mt-2">Hotel</h4>
+                  <a href="add-hotel.html" class="btn btn-primary float-right veiwbutton" >Add Hotel</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <form>
+                <div class="row formtype">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Hotel Name</label>
+                      <input type="text" class="form-control" id="usr1" required />
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div id="parent-element" class="form-group">
+                      <label>City</label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label>Search</label>
+                      <button id="btnsubmit" type="submit" class="btn btn-success btn-block mt-0 search_button">
+                        Search
+                      </button>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-group">
+                      <label>Clear</label>
+                      <a id="btnload" class="dropdown-item" ><i class="fas fa-trash m-r-5"></i></a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="datatable table table-stripped" id="myTable">
+                      <thead>
+                        <tr>
+                          <th>Image</th>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>Phone number</th>
+                          <th>Email</th>
+                          <th>City</th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <td></td>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="delete_asset" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body text-center">
+                  <img src="assets/img/sent.png" alt="" width="50" height="46"/>
+                  <h3 class="delete_class">
+                    Are you sure want to delete this Hotel?
+                  </h3>
+                  <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" >Close</a>
+                    <button id="confirm" class="btn btn-danger">Delete </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+
+    <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/plugins/datatables/datatables.min.js"></script>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+      $(function () {
+        $("#datetimepicker3").datetimepicker({
+          format: "LT",
+        });
+      });
+    </script>
+    <script>
+
+		var selectedRow = null;
+		$(document).ready(function() {
+			$(document).on("click", ".dropdown-item", function() {
+			selectedRow = $(this).closest("tr");
+			});
+      $("#confirm").click(function() {
+			if (selectedRow) {
+				const id = selectedRow.find("td")[1].innerText;
+				const url = `http://localhost:8081/admin/hotels/hide/${id}`
+				fetch(url, {
+					method: "POST",
+					headers: {
+					Authorization: "Bearer " + sessionStorage.getItem("token"),
+					"Content-Type": "application/json",
+					},
+					body: JSON.stringify(),
+				})
+					.then((response) => response.json())
+					.then((data) => {
+            if(data.status != 200){
+              alert("The hotel has rooms for rent that cannot be deleted");
+            }
+            else {
+              location.reload();
+            }
+					})
+					.catch((error) => console.error(error));
+				}
+				
+			});
+		});
+      var optionSelected;
+      var i = 0;
+      load();
+      var btnload = document.getElementById("btnload");
+      btnload.addEventListener("click", function(event) {
+        var nameInput = document.getElementById("usr1");
+        nameInput.value = "";
+        load();
+      });
+      var table = document.querySelector(".datatable tbody");
+      function load(){
+        
+      fetch("http://localhost:8081/home/hotels", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          i = 0;
+          data.data.forEach((hotel) => {
+            var row = table.insertRow(i);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            i = i + 1;
+            cell2.innerHTML = hotel.id;
+            cell1.innerHTML =
+              '<img src="' +
+              hotel.image +
+              '" class="avatar-img rounded-circle">';
+            cell3.innerHTML = hotel.name;
+            cell4.innerHTML = hotel.address;
+            cell5.innerHTML = hotel.phone_number;
+            cell6.innerHTML =
+              '<a href="mailto:' + hotel.email + '">' + hotel.email + "</a>";
+            cell7.innerHTML = hotel.city;
+            const id = hotel.id;
+            const url = `edit-hotel.html?id=${id}`;
+            const urlroom = `all-rooms.html?id=${id}`;
+            cell8.innerHTML = `
+            <div>
+            <a class="dropdown-item" href=${urlroom} ><i class="fas fa-key m-r-5"></i>Rooms</a>
+            <a class="dropdown-item" href=${url} ><i class="fas fa-pencil-alt m-r-5"></i>Edit</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i>Delete</a>
+            </div>
+          `;
+          });
+        })
+        .catch((error) => console.error(error));
+      }
+
+        var tinhThanh = [];
+      
+        fetch("http://localhost:8081/home/city-using", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          data.data.forEach((city) => {
+            tinhThanh.push(city.name);
+          });
+          var select = document.createElement("select");
+          select.setAttribute("class", "form-control");
+          select.setAttribute("id", "sel1");
+          select.setAttribute("name", "sellist1");
+          var defaultOption = document.createElement("option");
+          defaultOption.setAttribute("value", "");
+          var defaultOptionText = document.createTextNode(tinhThanh[0]);
+          defaultOption.appendChild(defaultOptionText);
+          select.appendChild(defaultOption);
+          optionSelected = tinhThanh[0];
+          for (var i = 1; i < tinhThanh.length; i++) {
+            var option = document.createElement("option");
+            option.setAttribute("value", tinhThanh[i]);
+            var optionText = document.createTextNode(tinhThanh[i]);
+            option.appendChild(optionText);
+            select.appendChild(option);
+          }
+
+          var parent = document.getElementById("parent-element");
+          parent.appendChild(select);
+
+          var select = document.getElementById("sel1"); // lấy đối tượng select
+
+        select.addEventListener("change", function() {
+          optionSelected = select.value;
+        });
+        })
+        .catch((error) => console.error(error));
+      
+      console.log(optionSelected);
+
+
+      var form = document.querySelector('form');
+		form.addEventListener("submit", function(event) {
+      var nameInput = document.getElementById("usr1");
+      var name = nameInput.value;
+        event.preventDefault();
+        var url =  `http://localhost:8081/home/hotels/${optionSelected}/${name}`;
+        fetch(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            var i = 0;
+            while (table.firstChild) {
+              table.removeChild(table.firstChild);
+            }
+            data.data.forEach((hotel) => {
+              var row = table.insertRow(i);
+              var cell1 = row.insertCell(0);
+              var cell2 = row.insertCell(1);
+              var cell3 = row.insertCell(2);
+              var cell4 = row.insertCell(3);
+              var cell5 = row.insertCell(4);
+              var cell6 = row.insertCell(5);
+              var cell7 = row.insertCell(6);
+              var cell8 = row.insertCell(7);
+              i = i + 1;
+              cell2.innerHTML = hotel.id;
+              cell1.innerHTML =
+                '<img src="' +
+                hotel.image +
+                '" class="avatar-img rounded-circle">';
+              cell3.innerHTML = hotel.name;
+              cell4.innerHTML = hotel.address;
+              cell5.innerHTML = hotel.phone_number;
+              cell6.innerHTML =
+                '<a href="mailto:' + hotel.email + '">' + hotel.email + "</a>";
+              cell7.innerHTML = hotel.city;
+              const id = hotel.id;
+              const url = `edit-hotel.html?id=${id}`;
+              cell8.innerHTML = `
+              <div>
+              <a class="dropdown-item" href=${url} ><i class="fas fa-pencil-alt m-r-5"></i>Edit</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i>Delete</a>
+              </div>
+            `;
+            });
+          
+          })
+          .catch((error) => console.error(error));
+
+	  });
+    
+    </script>
+  </body>
+</html>

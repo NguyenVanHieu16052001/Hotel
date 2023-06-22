@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Hotel Dashboard Template</title>
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/feathericon.min.css">
+	<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="assets/css/style.css"> </head>
+
+<body>
+	<div class="main-wrapper">
+		<div class="header">
+			<div class="header-left">
+				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
+			</div>
+			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
+			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
+			<ul class="nav user-menu">
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Soeng Souy"></span> </a>
+					<div class="dropdown-menu">
+						<div class="user-header">
+							<div class="avatar avatar-sm"> <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle"> </div>
+							<div class="user-text">
+								<h6>Soeng Souy</h6>
+								<p class="text-muted mb-0">Administrator</p>
+							</div>
+						</div> <a class="dropdown-item" href="profile.html">My Profile</a> <a class="dropdown-item" href="settings.html">Account Settings</a> <a class="dropdown-item" href="login.html">Logout</a> </div>
+				</li>
+			</ul>
+		</div>
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="active"> <a href="index.html"><i class="fas fa-laptop"></i> <span>Home</span></a> </li>
+						<li class="list-divider"></li>
+						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a href="all-booking.html"> All Booking </a></li>
+								<li><a href="add-booking.html"> Add Booking </a></li>
+							</ul>
+						</li>
+						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a href="all-customer.html"> All customers </a></li>
+								<li><a href="add-customer.html"> Add Customer </a></li>
+							</ul>
+						</li>
+						  
+						<li class="submenu"> <a href="#"><i class="fas fa-envelope"></i> <span> Staff </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a href="all-staff.html">All Staff </a></li>
+								<li><a href="add-staff.html"> Add Staff </a></li>
+							</ul>
+						</li>
+						<li class="submenu"> <a href="#"><i class="fas fa-cube"></i> <span> Hotel </span> <span class="menu-arrow"></span></a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a href="hotels.html">All Hotel </a></li>
+								<li><a href="add-hotel.html">Add Hotel</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="page-wrapper">
+			<div class="content container-fluid">
+				<div class="page-header">
+					<div class="row align-items-center">
+						<div class="col">
+							<h3 class="page-title mt-5">Add Room</h3> </div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<form>
+							<div class="row formtype">
+								<div class="col-md-6">
+									<div class="form-group">
+									  <label>Number</label>
+									  <input id="number" class="form-control" type="text" required/>
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Area</label>
+									  <input id="area" class="form-control" type="text" pattern="^\+?\d{1,3}[- ]?\d{3,4}[- ]?\d{4}$" required  />
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>BedNumb</label>
+									  <input id="bedNumb" class="form-control" type="text" required/>
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>PeopleNumb</label>
+									  <input id="peopleNumb" class="form-control" type="text"  required/>
+									</div>
+								  </div>
+							  <div class="col-md-6">
+								<div class="form-group">
+									<label for="fileInput">Select file image:</label>
+									<div class="input-group">
+									  <input type="text" class="form-control" id="myFile" readonly required>
+									  <span class="input-group-btn">
+										<label class="btn btn-danger" for="fileInput">Browse&hellip;</label>
+										<input type="file" id="fileInput" style="display: none;" onchange="document.getElementById('myFile').value = this.files[0].name;">
+									  </span>
+									</div>
+								  </div>
+							  </div>
+							  <div class="col-md-6">
+								<div id="parent-element" class="form-group">
+								  <label>Price</label>
+								  <input id="price" class="form-control" type="number"  required/>
+								</div>
+							  </div>
+							  <div class="col-md-6">
+								<button id="btnAdd" type="submit" class="btn btn-block buttonedit">
+								  Save
+								</button>
+							  </div>
+							</div>
+						  </form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/plugins/raphael/raphael.min.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		const id = urlParams.get('id');
+		var fileInput = document.getElementById("fileInput");
+		var formData = new FormData();
+		fileInput.addEventListener("change", function() {
+			var file = event.target.files[0];
+			formData.append("image", file);
+			myFile.value = this.value.split("\\").pop();
+			fileInput.classList.remove("error"); 
+			myFile.removeAttribute("placeholder"); 
+		});
+		var myFile = document.getElementById("myFile");
+		var form = document.querySelector('form');
+		form.addEventListener("submit", function(event) {
+			if (myFile.value == "" && myFile.getAttribute == "") {
+				event.preventDefault(); // prevent form submission if no file has been selected
+				fileInput.classList.add("error"); // add error class to highlight the input field
+				myFile.setAttribute("placeholder", "Vui lòng chọn tệp"); // set the placeholder text
+			}
+			else{
+				event.preventDefault();
+				var nameInput = document.getElementById("number");
+				var name = nameInput.value;
+
+				var phoneNumberInput = document.getElementById("area");
+				var phoneNumber = phoneNumberInput.value;
+
+				var addressInput = document.getElementById("bedNumb");
+				var address = addressInput.value;
+
+				var emailInput = document.getElementById("peopleNumb");
+				var email = emailInput.value;
+
+				var priceInput = document.getElementById("price");
+				var price = priceInput.value;
+
+				formData.append("number", name);
+				formData.append("area", phoneNumber);
+				formData.append("bedNumb", address);
+				formData.append("peopleNumb", email);
+				formData.append("price", price);
+				const id = urlParams.get('id');
+				var url = `http://localhost:8081/admin/${id}/rooms/add`;
+				fetch(url, {
+				method: "POST",
+				headers: {
+					Authorization: "Bearer " + sessionStorage.getItem("token"),
+				},
+				body: formData,
+				})
+				.then((response) => response.json())
+				.then((data) => {
+					if(data.status != 200){
+						alert(data.error);
+					}
+					else {
+						window.location.href = `all-rooms.html?id=${id}`;
+					}
+				})
+				.catch((error) => console.error(error));
+				
+			}
+
+		});
+		fileInput.addEventListener("change", function() {
+			myFile.value = this.value.split("\\").pop();
+			fileInput.classList.remove("error"); // remove error class when a file is selected
+			myFile.removeAttribute("placeholder"); // remove the placeholder text
+		});
+	</script>
+</body>
+
+</html>

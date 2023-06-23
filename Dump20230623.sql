@@ -207,6 +207,7 @@ CREATE TABLE `reservation` (
   `account_name` varchar(45) NOT NULL,
   `time` datetime NOT NULL,
   `rentalDayNumber` int NOT NULL,
+  `day_arrival` date NOT NULL,
   `status` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`room_id`,`account_name`,`time`),
   KEY `acc_idx` (`account_name`),
@@ -221,7 +222,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES (1,'hieuhdhk@gmail.com','2022-02-02 00:00:00',1,1),(2,'hieuhdhk@gmail.com','2022-02-02 00:00:00',1,1);
+INSERT INTO `reservation` VALUES (1,'hieuhdhk@gmail.com','2022-02-02 00:00:00',1,'2023-06-24',1),(2,'hieuhdhk@gmail.com','2022-02-02 00:00:00',1,'2023-06-24',1);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,4 +374,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-23  1:31:05
+-- Dump completed on 2023-06-23 10:34:52
